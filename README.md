@@ -19,7 +19,7 @@ method is **implemented from scratch** rather than called from a library.
 |---|----------|-------|----------------------|-----------------|
 | **1** | [**Box Detection**](exercise-1-box-detection/) — 3D box measurement from ToF data | ✅ | ✅ MLESAC · Preemptive RANSAC | RANSAC plane fitting, point clouds, morphology |
 | **2** | Demosaicing & HDR | ⬜ | ⬜ | Bayer interpolation, tone mapping, exposure fusion |
-| **3** | Writer Identification & Retrieval | ⬜ | ⬜ | Feature descriptors, encoding, retrieval metrics |
+| **3** | [**Writer Identification & Retrieval**](exercise-3-writer-identification/) — ICDAR17 historical manuscripts | ✅ | ✅ Color-image SIFT + RootSIFT | SIFT, VLAD encoding, power-norm/GMP, E-SVM, mAP |
 | **4** | Face Recognition | ⬜ | ⬜ | Eigenfaces / embeddings, classification |
 | **5** | Computer Vision in the Humanities | ⬜ | ⬜ | Applied CV on cultural-heritage data |
 
@@ -49,10 +49,25 @@ Estimate the physical **height, length, and width** of a box from a single ToF c
 Reconstruct full-color images from a raw Bayer mosaic and build high-dynamic-range
 images from bracketed exposures. *(Coming soon.)*
 
-## 3 · Writer Identification & Retrieval ⬜
+## 3 · Writer Identification & Retrieval ✅
 
-Identify the writer of a handwriting sample and retrieve documents by the same hand.
-*(Coming soon.)*
+Identify the **writer** of a historical handwritten page and **retrieve** other pages by
+the same hand, on the **ICDAR 2017 Historical-WI** dataset.
+
+- **Group:** encode per-image **SIFT** descriptors into a global **VLAD** representation
+  (MiniBatch k-means vocabulary, power normalization, optional Generalized Max Pooling),
+  then rank by cosine similarity and re-rank with a **Linear / Exemplar-SVM**. Evaluated
+  with top-1 accuracy and **mean Average Precision (mAP)**.
+- **Individual:** re-run the pipeline on the **original color images** with direct SIFT
+  extraction and **RootSIFT (Hellinger)** normalization, comparing against the binarized
+  baseline.
+
+| Method                    | Top-1 accuracy | mAP    |
+| ------------------------- | -------------- | ------ |
+| VLAD + power-norm         | 0.821          | 0.625  |
+| + Exemplar-SVM re-ranking | **0.887**      | **0.749** |
+
+→ Full write-up: **[exercise-3-writer-identification/README.md](exercise-3-writer-identification/)**
 
 ## 4 · Face Recognition ⬜
 
@@ -82,7 +97,15 @@ cv-project-fau/
 │   └── exercise-01-individual.pdf
 │
 ├── exercise-2-demosaicing-hdr/      (coming soon)
-├── exercise-3-writer-identification/(coming soon)
+│
+├── exercise-3-writer-identification/
+│   ├── README.md
+│   ├── group/          ← SIFT → VLAD pipeline + notebooks
+│   ├── individual/     ← color-image extension + results
+│   ├── results/        ← result figures & run logs
+│   ├── data/README.md  ← dataset is course-provided (git-ignored)
+│   └── exercise-03.pdf
+│
 ├── exercise-4-face-recognition/     (coming soon)
 └── exercise-5-cv-humanities/        (coming soon)
 ```

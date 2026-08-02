@@ -9,5 +9,10 @@ scikit-learn>=1.3
 jupyter>=1.0
 notebook>=7.0
 
+# Exercise 3 — Writer Identification (SIFT + VLAD)
+opencv-python>=4.8
+tqdm>=4.65
+joblib>=1.3
+
 # Additional dependencies will be appended as later exercises are added
-# (e.g. opencv-python, scikit-image, torch) — see each exercise README.
+# (e.g. scikit-image, torch) — see each exercise README.

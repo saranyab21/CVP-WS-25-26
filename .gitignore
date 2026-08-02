@@ -48,3 +48,9 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+
+# ── Exercise 3: regenerable encodings & raw feature dirs ─────────────
+**/icdar17_local_features/
+*_sift_hellinger.pkl
+enc_*.pkl.gz
+**/original_images/

@@ -1,0 +1,65 @@
+Exercise 3 Bonus Report – Writer Identification with VLAD Extensions (ICDAR17 Original Images)
+Name: Saranya Bhattacharjee
+
+1. Baseline Results (Binarized, Group Exercise)
+-----------------------------------------------
+
+VLAD (Power Norm):
+
+Top-1 Accuracy: 0.8206
+
+mAP: 0.6252
+
+Exemplar SVM (E-SVM):
+
+Top-1 Accuracy: 0.8872
+
+mAP: 0.7486
+
+Note: E-SVM boosted performance by 0.12 mAP. Both methods work well on binarized images.
+
+2. Bonus Exercise Results (Original Colored Images, N=5)
+------------------------------------------------------
+
+Due to laptop slow processing, I used only 5 images for both train and test. Each run took up to 3 hours.
+
+a) VLAD + SIFT+Hellinger
+
+mAP: 0.867
+
+b) VLAD + GMP
+
+mAP: 0.733
+
+c) Multi-VLAD + PCA Whitening
+
+mAP: 0.900
+
+3. Comparison and Observations
+
+The bonus pipelines (on original/color images) gave better mAP than the baseline on binarized.
+
+Multi-VLAD + PCA had the best result.
+
+SIFT+Hellinger descriptors seem to make a real difference on color/original images.
+
+Processing more images would likely push results even higher, but time was the main constraint.
+
+4. Final Takeaways
+
+All required bonus methods were implemented and tested.
+
+Multi-VLAD + PCA came out on top (mAP: 0.900, N=5).
+
+Original images provide more discriminative features than binarized ones, at least on this small sample.
+
+With more time (or hardware), running on the full dataset would be recommended.
+
+Table: Bonus Results (N=5)
+
+VLAD + SIFT+Hellinger: 0.867
+GMP VLAD: 0.733
+Multi-VLAD + PCA: 0.900
+
+Code is attached as requested.
+
