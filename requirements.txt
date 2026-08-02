@@ -1,0 +1,13 @@
+# Core scientific stack used across the Computer Vision Project exercises.
+# Tested with Python 3.10+.
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+scikit-learn>=1.3
+
+# Notebook environment
+jupyter>=1.0
+notebook>=7.0
+
+# Additional dependencies will be appended as later exercises are added
+# (e.g. opencv-python, scikit-image, torch) — see each exercise README.
