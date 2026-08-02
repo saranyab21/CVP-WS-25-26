@@ -15,19 +15,20 @@ method is **implemented from scratch** rather than called from a library.
 
 ## Exercises
 
-| # | Exercise | Group | Individual extension | Core techniques |
-|---|----------|-------|----------------------|-----------------|
-| **1** | [**Box Detection**](exercise-1-box-detection/) — 3D box measurement from ToF data | ✅ | ✅ MLESAC · Preemptive RANSAC | RANSAC plane fitting, point clouds, morphology |
-| **2** | [**Demosaicing & HDR**](exercise-2-demosaicing-hdr/) — raw imaging pipeline | ✅ | ✅ HDR from JPEG (Debevec–Malik) | Bayer demosaicing, white balance, gamma, iCAM06, CRF |
-| **3** | [**Writer Identification & Retrieval**](exercise-3-writer-identification/) — ICDAR17 historical manuscripts | ✅ | ✅ Color-image SIFT + RootSIFT | SIFT, VLAD encoding, power-norm/GMP, E-SVM, mAP |
-| **4** | [**Face Recognition**](exercise-4-face-recognition/) — video-based recognition system | ✅ | ✅ Dual-embedding + open-set challenge (SPL/MPL) | MTCNN, template tracking, FaceNet, k-NN, k-means, DIR, OSR |
-| **5** | [**Computer Vision in the Humanities**](exercise-5-cv-humanities/) — detection on cultural-heritage imagery | ✅ | ✅ SS→CNN→SVM detection pipeline | Selective Search, Felzenszwalb, LBP, ResNet18, SVM, NMS |
+| # | Exercise | Individual extension | Core techniques |
+|---|----------|----------------------|-----------------|
+| **1** | [**Box Detection**](exercise-1-box-detection/) — 3D box measurement from ToF data | MLESAC · Preemptive RANSAC | RANSAC plane fitting, point clouds, morphology |
+| **2** | [**Demosaicing & HDR**](exercise-2-demosaicing-hdr/) — raw imaging pipeline | HDR from JPEG (Debevec–Malik) | Bayer demosaicing, white balance, gamma, iCAM06, CRF |
+| **3** | [**Writer Identification & Retrieval**](exercise-3-writer-identification/) — ICDAR17 historical manuscripts | Color-image SIFT + RootSIFT | SIFT, VLAD encoding, power-norm/GMP, E-SVM, mAP |
+| **4** | [**Face Recognition**](exercise-4-face-recognition/) — video-based recognition system | Dual-embedding + open-set challenge (SPL/MPL) | MTCNN, template tracking, FaceNet, k-NN, k-means, DIR, OSR |
+| **5** | [**Computer Vision in the Humanities**](exercise-5-cv-humanities/) — detection on cultural-heritage imagery | SS→CNN→SVM detection pipeline | Selective Search, Felzenszwalb, LBP, ResNet18, SVM, NMS |
 
-*(All five exercises complete — group and individual tracks. ✅ = included.)*
+Each exercise includes both the **group** solution and the **individual** extension required
+for the 10 ECTS track.
 
 ---
 
-## 1 · Box Detection from Time-of-Flight Data ✅
+## 1 · Box Detection from Time-of-Flight Data
 
 Estimate the physical **height, length, and width** of a box from a single ToF capture
 (registered amplitude image, distance image, and point cloud).
@@ -44,7 +45,7 @@ Estimate the physical **height, length, and width** of a box from a single ToF c
 
 → Full write-up: **[exercise-1-box-detection/README.md](exercise-1-box-detection/)**
 
-## 2 · Demosaicing & HDR ✅
+## 2 · Demosaicing & HDR
 
 Reconstruct full-color images from a raw **Bayer mosaic**, analyze the camera's radiometric
 response, and build **HDR** images — all from scratch in NumPy.
@@ -58,7 +59,7 @@ response, and build **HDR** images — all from scratch in NumPy.
 
 → Full write-up: **[exercise-2-demosaicing-hdr/README.md](exercise-2-demosaicing-hdr/)**
 
-## 3 · Writer Identification & Retrieval ✅
+## 3 · Writer Identification & Retrieval
 
 Identify the **writer** of a historical handwritten page and **retrieve** other pages by
 the same hand, on the **ICDAR 2017 Historical-WI** dataset.
@@ -78,7 +79,7 @@ the same hand, on the **ICDAR 2017 Historical-WI** dataset.
 
 → Full write-up: **[exercise-3-writer-identification/README.md](exercise-3-writer-identification/)**
 
-## 4 · Face Recognition ✅
+## 4 · Face Recognition
 
 A complete video-based face recognition system on the YouTube Faces database, spanning
 detection through an open-set recognition challenge.
@@ -96,7 +97,7 @@ DIR analysis gives ≈0.71 ID rate at FAR ≤ 1 %. See the write-up for figures.
 
 → Full write-up: **[exercise-4-face-recognition/README.md](exercise-4-face-recognition/)**
 
-## 5 · Computer Vision in the Humanities ✅
+## 5 · Computer Vision in the Humanities
 
 Object detection for cultural-heritage imagery, built on **Selective Search**.
 
