@@ -18,7 +18,7 @@ method is **implemented from scratch** rather than called from a library.
 | # | Exercise | Group | Individual extension | Core techniques |
 |---|----------|-------|----------------------|-----------------|
 | **1** | [**Box Detection**](exercise-1-box-detection/) — 3D box measurement from ToF data | ✅ | ✅ MLESAC · Preemptive RANSAC | RANSAC plane fitting, point clouds, morphology |
-| **2** | Demosaicing & HDR | ⬜ | ⬜ | Bayer interpolation, tone mapping, exposure fusion |
+| **2** | [**Demosaicing & HDR**](exercise-2-demosaicing-hdr/) — raw imaging pipeline | ✅ | ✅ HDR from JPEG (Debevec–Malik) | Bayer demosaicing, white balance, gamma, iCAM06, CRF |
 | **3** | [**Writer Identification & Retrieval**](exercise-3-writer-identification/) — ICDAR17 historical manuscripts | ✅ | ✅ Color-image SIFT + RootSIFT | SIFT, VLAD encoding, power-norm/GMP, E-SVM, mAP |
 | **4** | Face Recognition | ⬜ | ⬜ | Eigenfaces / embeddings, classification |
 | **5** | Computer Vision in the Humanities | ⬜ | ⬜ | Applied CV on cultural-heritage data |
@@ -44,10 +44,19 @@ Estimate the physical **height, length, and width** of a box from a single ToF c
 
 → Full write-up: **[exercise-1-box-detection/README.md](exercise-1-box-detection/)**
 
-## 2 · Demosaicing & HDR ⬜
+## 2 · Demosaicing & HDR ✅
 
-Reconstruct full-color images from a raw Bayer mosaic and build high-dynamic-range
-images from bracketed exposures. *(Coming soon.)*
+Reconstruct full-color images from a raw **Bayer mosaic**, analyze the camera's radiometric
+response, and build **HDR** images — all from scratch in NumPy.
+
+- **Group:** Bayer-pattern demosaicing (RGGB, mask-based convolution), gray-world white
+  balance, **linearity & gamma** analysis, logarithmic tone mapping, and a from-scratch
+  **iCAM06** tone-mapping operator.
+- **Individual:** HDR from 12 bracketed **JPEGs** via the **Debevec–Malik** method —
+  camera-response-function estimation, radiance-map merging, and log tone mapping, using only
+  NumPy + PIL.
+
+→ Full write-up: **[exercise-2-demosaicing-hdr/README.md](exercise-2-demosaicing-hdr/)**
 
 ## 3 · Writer Identification & Retrieval ✅
 
@@ -96,7 +105,13 @@ cv-project-fau/
 │   ├── exercise-01.pdf
 │   └── exercise-01-individual.pdf
 │
-├── exercise-2-demosaicing-hdr/      (coming soon)
+├── exercise-2-demosaicing-hdr/
+│   ├── README.md
+│   ├── group/          ← demosaicing + WB + gamma + iCAM06
+│   ├── individual/     ← HDR-from-JPEG (Debevec–Malik)
+│   ├── results/        ← diagnostic plots & renders
+│   ├── data/README.md  ← raw data is course-provided (git-ignored)
+│   └── exercise-02.pdf
 │
 ├── exercise-3-writer-identification/
 │   ├── README.md

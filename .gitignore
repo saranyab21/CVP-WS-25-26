@@ -54,3 +54,12 @@ Thumbs.db
 *_sift_hellinger.pkl
 enc_*.pkl.gz
 **/original_images/
+
+# ── Exercise 2: raw camera data & full-res renders ──────────────────
+**/exercise_4_data/
+**/ex4_additional_exercise_data/
+*.CR3
+*.cr3
+*.dng
+*.arw
+*.nef

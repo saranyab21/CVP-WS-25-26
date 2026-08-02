@@ -9,6 +9,10 @@ scikit-learn>=1.3
 jupyter>=1.0
 notebook>=7.0
 
+# Exercise 2 — Demosaicing & HDR (raw imaging)
+rawpy>=0.18
+Pillow>=10.0
+
 # Exercise 3 — Writer Identification (SIFT + VLAD)
 opencv-python>=4.8
 tqdm>=4.65
