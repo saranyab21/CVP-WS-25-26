@@ -1,0 +1,13 @@
+Q5.1.1
+Felzenszwalb generates fine-grained, arbitrarily shaped segments, but Selective Search groups these into hierarchical, larger regions focused on object proposals, making it more suitable for object detection.
+
+Q5.1.2:
+Criteria in main.py:
+
+Duplicate Removal: Avoid redundant boxes.
+Minimum Size (< 2000): Filters small regions.
+Aspect Ratio (w/h > 1.2 or h/w > 1.2): Removes elongated/narrow boxes.
+Effect: Improves proposal quality. Additional criteria could include region overlap, compactness, and color variance.
+
+Q5.1.3:
+Rectangles are derived by calculating the bounding box of merged regions using their minimum and maximum x/y coordinates.

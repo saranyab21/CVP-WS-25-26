@@ -63,3 +63,13 @@ enc_*.pkl.gz
 *.dng
 *.arw
 *.nef
+
+# ── Exercise 5: datasets & regenerable pipeline artifacts ───────────
+**/balloon_dataset/
+**/arthist/
+**/classarch/
+**/chrisarch/
+**/results/features/
+**/results/proposals/
+**/results/labeled_proposals/
+*.joblib

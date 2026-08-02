@@ -1,0 +1,29 @@
+Q5.2.1
+Your implementation is a simplified version of Uijlings et al. (Selective Search). In what ways does their version differ from yours?
+
+1. One run vs many: I run SS once; the paper runs it many times with different settings/color spaces and unions all boxes.
+
+2. Simpler cues: I use HSV + LBP; they use multiple color spaces and richer texture filters.
+
+3. Neighbor check: I approximate neighbors via bbox overlap; they use true pixel adjacency.
+
+4. Cleanup/ranking: I mostly keep all regions; they deduplicate/rank and vary cue weights for diversity.
+
+5. Model used: I use a pretrained CNN + SVM; classic pipelines often used SIFT/HOG (not SS itself).
+
+Q5.2.2
+What is the effect of changing the thresholds for positive and negative samples? Why do we need two thresholds instead of just one?
+
+Changing the thresholds for positive (tp) and negative (tn) samples affects how strict the labeling is for SVM training. A higher positive threshold 
+(e.g., 0.8) means only proposals that very closely match the ground truth are labeled as positive, which gives fewer but higher-quality positives. 
+A lower negative threshold (e.g., 0.2) means only proposals far from any object are labeled negative. The region between the two thresholds (ambiguous cases) 
+is ignored to avoid confusing the SVM with hard samples. If I used only one threshold, I would have to label many ambiguous regions as either positive or 
+negative, which would likely hurt the classifier's performance. Using two thresholds gives cleaner training data and a more robust detector.
+
+Q5.2.3
+The balloon dataset is quite small and does not provide many training samples. Can you think of ways to increase the amount of training data?
+
+Yes - if I had more time or resources, I would try data augmentation (random crops, flips, rotations, color jitter, etc.) to multiply the amount of positive 
+regions. I could also generate synthetic positive samples by jittering ground truth boxes or using copy-paste augmentation. Using balloon-like images from 
+the web or related datasets for pre-training or as extra positives would help as well. Finally, even just using all ground truth boxes (and slightly 
+perturbed versions) for positives—as suggested in the assignment—would help increase the number of training samples for SVM.

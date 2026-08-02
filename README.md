@@ -21,7 +21,7 @@ method is **implemented from scratch** rather than called from a library.
 | **2** | [**Demosaicing & HDR**](exercise-2-demosaicing-hdr/) — raw imaging pipeline | ✅ | ✅ HDR from JPEG (Debevec–Malik) | Bayer demosaicing, white balance, gamma, iCAM06, CRF |
 | **3** | [**Writer Identification & Retrieval**](exercise-3-writer-identification/) — ICDAR17 historical manuscripts | ✅ | ✅ Color-image SIFT + RootSIFT | SIFT, VLAD encoding, power-norm/GMP, E-SVM, mAP |
 | **4** | Face Recognition | ⬜ | ⬜ | Eigenfaces / embeddings, classification |
-| **5** | Computer Vision in the Humanities | ⬜ | ⬜ | Applied CV on cultural-heritage data |
+| **5** | [**Computer Vision in the Humanities**](exercise-5-cv-humanities/) — detection on cultural-heritage imagery | ✅ | ✅ SS→CNN→SVM detection pipeline | Selective Search, Felzenszwalb, LBP, ResNet18, SVM, NMS |
 
 *(✅ = included · ⬜ = to be added. This table is updated as each exercise is uploaded.)*
 
@@ -82,9 +82,19 @@ the same hand, on the **ICDAR 2017 Historical-WI** dataset.
 
 Detect and recognize faces from image data. *(Coming soon.)*
 
-## 5 · Computer Vision in the Humanities ⬜
+## 5 · Computer Vision in the Humanities ✅
 
-Apply computer-vision methods to cultural-heritage / humanities data. *(Coming soon.)*
+Object detection for cultural-heritage imagery, built on **Selective Search**.
+
+- **Group:** Selective Search region proposals from scratch — **Felzenszwalb** initial
+  segmentation, HSV-color + **LBP-texture** region features, hierarchical merging, and
+  proposal filtering — applied to art-historical images.
+- **Individual:** a complete classical detection pipeline on the balloon dataset —
+  Selective Search proposals → **ResNet18** features → class-weighted **SVM** →
+  **non-maximum suppression**, with an honest discussion of the small-data / class-imbalance
+  limitations.
+
+→ Full write-up: **[exercise-5-cv-humanities/README.md](exercise-5-cv-humanities/)**
 
 ---
 
@@ -122,7 +132,14 @@ cv-project-fau/
 │   └── exercise-03.pdf
 │
 ├── exercise-4-face-recognition/     (coming soon)
-└── exercise-5-cv-humanities/        (coming soon)
+│
+└── exercise-5-cv-humanities/
+    ├── README.md
+    ├── group/          ← Selective Search implementation
+    ├── individual/     ← SS→CNN→SVM→NMS detection pipeline
+    ├── results/        ← detections & SS visualizations
+    ├── data/README.md  ← datasets are course/third-party (git-ignored)
+    └── exercise-05.pdf
 ```
 
 Each exercise is self-contained, with its own `README.md` describing the task, method,
