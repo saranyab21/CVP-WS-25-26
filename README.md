@@ -20,10 +20,10 @@ method is **implemented from scratch** rather than called from a library.
 | **1** | [**Box Detection**](exercise-1-box-detection/) — 3D box measurement from ToF data | ✅ | ✅ MLESAC · Preemptive RANSAC | RANSAC plane fitting, point clouds, morphology |
 | **2** | [**Demosaicing & HDR**](exercise-2-demosaicing-hdr/) — raw imaging pipeline | ✅ | ✅ HDR from JPEG (Debevec–Malik) | Bayer demosaicing, white balance, gamma, iCAM06, CRF |
 | **3** | [**Writer Identification & Retrieval**](exercise-3-writer-identification/) — ICDAR17 historical manuscripts | ✅ | ✅ Color-image SIFT + RootSIFT | SIFT, VLAD encoding, power-norm/GMP, E-SVM, mAP |
-| **4** | Face Recognition | ⬜ | ⬜ | Eigenfaces / embeddings, classification |
+| **4** | [**Face Recognition**](exercise-4-face-recognition/) — video-based recognition system | ✅ | ✅ Dual-embedding + open-set challenge (SPL/MPL) | MTCNN, template tracking, FaceNet, k-NN, k-means, DIR, OSR |
 | **5** | [**Computer Vision in the Humanities**](exercise-5-cv-humanities/) — detection on cultural-heritage imagery | ✅ | ✅ SS→CNN→SVM detection pipeline | Selective Search, Felzenszwalb, LBP, ResNet18, SVM, NMS |
 
-*(✅ = included · ⬜ = to be added. This table is updated as each exercise is uploaded.)*
+*(All five exercises complete — group and individual tracks. ✅ = included.)*
 
 ---
 
@@ -78,9 +78,23 @@ the same hand, on the **ICDAR 2017 Historical-WI** dataset.
 
 → Full write-up: **[exercise-3-writer-identification/README.md](exercise-3-writer-identification/)**
 
-## 4 · Face Recognition ⬜
+## 4 · Face Recognition ✅
 
-Detect and recognize faces from image data. *(Coming soon.)*
+A complete video-based face recognition system on the YouTube Faces database, spanning
+detection through an open-set recognition challenge.
+
+- **Group (5.1–5.4):** MTCNN detection with **template-matching tracking** (+ re-init),
+  224×224 alignment, **FaceNet** (ResNet-50/ONNX) 128-D embeddings, from-scratch **k-NN**
+  identification (closed- and open-set), from-scratch **k-means** clustering for
+  re-identification, and **DIR-curve** evaluation.
+- **Individual (5.2 ext. + 5.5):** **dual color+grayscale embeddings** fused for robustness,
+  and the **open-set recognition challenge** with **Single/Multi Pseudo Label** (SPL/MPL)
+  strategies over known and known-unknown classes.
+
+Selected results: identification stays robust to ±30° rotation and illumination changes;
+DIR analysis gives ≈0.71 ID rate at FAR ≤ 1 %. See the write-up for figures.
+
+→ Full write-up: **[exercise-4-face-recognition/README.md](exercise-4-face-recognition/)**
 
 ## 5 · Computer Vision in the Humanities ✅
 
@@ -131,7 +145,12 @@ cv-project-fau/
 │   ├── data/README.md  ← dataset is course-provided (git-ignored)
 │   └── exercise-03.pdf
 │
-├── exercise-4-face-recognition/     (coming soon)
+├── exercise-4-face-recognition/
+│   ├── README.md
+│   ├── src/cvproj_exc/  ← detection, tracking, FaceNet, k-NN, k-means, OSR
+│   ├── results/         ← robustness, DIR, k-means, tuning evidence
+│   ├── data/README.md   ← data + ONNX model are course-provided (git-ignored)
+│   └── exercise-04.pdf
 │
 └── exercise-5-cv-humanities/
     ├── README.md

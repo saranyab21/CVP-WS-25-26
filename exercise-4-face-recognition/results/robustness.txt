@@ -1,0 +1,6 @@
+frontal: pred=Al_Pacino, posterior=1.0000, min_dist=0.0000
+rotate_+30: detection FAILED
+rotate_-30: pred=Al_Pacino, posterior=1.0000, min_dist=0.6266
+bright_x1.5: pred=Al_Pacino, posterior=1.0000, min_dist=0.2785
+dark_x0.6: pred=Al_Pacino, posterior=1.0000, min_dist=0.2672
+blur_k7: pred=unknown, posterior=0.6667, min_dist=1.1341

@@ -23,5 +23,8 @@ scikit-image>=0.21
 torch>=2.0
 torchvision>=0.15
 
+# Exercise 4 — Face Recognition (per-exercise env in exercise-4-face-recognition/src/requirements.txt)
+mtcnn>=0.1.1
+
 # Additional dependencies will be appended as later exercises are added
 # (e.g. scikit-image, torch) — see each exercise README.

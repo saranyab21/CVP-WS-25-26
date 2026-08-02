@@ -1,0 +1,5 @@
+Operating point (i): FAR<=1% and ID maximized
+FAR=0.009977, ID=0.707091, thr=-0.497051
+
+Operating point (ii): ID>=90% and FAR minimized
+FAR=0.140605, ID=0.900103, thr=-0.671862

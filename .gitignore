@@ -73,3 +73,14 @@ enc_*.pkl.gz
 **/results/proposals/
 **/results/labeled_proposals/
 *.joblib
+
+# ── Exercise 4: face data, ONNX model, galleries, eval sets ─────────
+**/train_data/
+**/test_data/
+*.onnx
+**/recognition_gallery.pkl
+**/clustering_gallery.pkl
+**/evaluation_*.pkl
+**/challenge_*.csv
+.env
+.pytest_cache/
