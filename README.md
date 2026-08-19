@@ -1,9 +1,8 @@
 # Computer Vision Project — FAU (Winter 25/26, 10 ECTS)
 
 A collection of computer-vision exercises completed as part of the **Project Computer
-Vision** course at Friedrich-Alexander-Universität Erlangen-Nürnberg (Pattern
-Recognition Lab, INF 5). This repository covers the **full 10 ECTS track** — both the
-**group exercises** and the additional **individual exercises**, where every classical
+Vision** course at FAU (Pattern
+Recognition Lab, INF 5). This repository covers the **full 10 ECTS track**, where every classical
 method is **implemented from scratch** rather than called from a library.
 
 > **Scope of the 10 ECTS option:** the standard course is 5 ECTS (lectures + group
